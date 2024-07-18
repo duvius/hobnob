@@ -1,0 +1,39 @@
+{
+  "name": "hobnob",
+  "version": "0.1.0",
+  "description": "A very simple user directory API with recommendation engine # Usage Run `node index.js`",
+  "main": "index.js",
+  "scripts": {
+    "fix": "eslint src --fix",
+    "build": "rm -rf dist/ && babel src -d dist",
+    "lint": "eslint src",
+    "precommit": "yarn run lint",
+    "serve": "yarn run build && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon -w src --exec yarn run serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duvius/hobnob.git"
+  },
+  "author": "duviusKaos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duvius/hobnob/issues"
+  },
+  "homepage": "https://github.com/duvius/hobnob#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.24.9",
+    "@babel/preset-env": "^7.24.8",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "husky": "^9.1.1",
+    "nodemon": "^3.1.4",
+    "rimraf": "^6.0.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
+  }
+}
