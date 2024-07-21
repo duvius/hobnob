@@ -4,13 +4,13 @@
   "description": "A very simple user directory API with recommendation engine # Usage Run `node index.js`",
   "main": "index.js",
   "scripts": {
-    "fix": "eslint src --fix",
+    "fix": "eslint src spec --fix",
     "build": "rm -rf dist/ && babel src -d dist",
-    "lint": "eslint src",
+    "lint": "eslint src spec",
     "precommit": "yarn run lint",
-    "serve": "yarn run build && node dist/index.js",
+    "serve": "yarn run build && dotenv node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:e2e": "cucumber-js spec/cucumber/features --require-module @babel/register --require spec/cucumber/steps",
+    "test:e2e": "dotenv cucumber-js -- spec/cucumber/features --require-module @babel/register --require spec/cucumber/steps",
     "watch": "nodemon -w src --exec yarn run serve"
   },
   "repository": {
@@ -26,15 +26,18 @@
   "devDependencies": {
     "@babel/cli": "^7.24.8",
     "@babel/core": "^7.24.9",
+    "@babel/node": "^7.24.8",
     "@babel/preset-env": "^7.24.8",
     "@babel/register": "^7.24.6",
     "@cucumber/cucumber": "^10.8.0",
+    "dotenv-cli": "^7.4.2",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "husky": "^9.1.1",
     "nodemon": "^3.1.4",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "superagent": "^9.0.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1"
