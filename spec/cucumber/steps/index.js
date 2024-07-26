@@ -10,12 +10,12 @@ When(/^attaches a generic (.+) payload$/, function (payloadType) {
   switch (payloadType) {
     case 'malformed':
       this.request
-        .send('{"email": "dan@danyll.com", name: }')
+        .send('{"email": "mrsnobot@gmail.com", name: }')
         .set('Content-Type', 'application/json');
       break;
     case 'non-JSON':
       this.request
-        .send('<?xml version="1.0" encoding="UTF-8" ?><email>dan@danyll.com</email>')
+        .send('<?xml version="1.0" encoding="UTF-8" ?><email>mrsnobot@gmail.com</email>')
         .set('Content-Type', 'text/xml');
       break;
     case 'empty':
