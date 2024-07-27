@@ -56,3 +56,7 @@ Then(/^the payload of the response should be a JSON object$/, function () {
 Then(/^contains a message property which says (?:"|')(.*)(?:"|')$/, function (message) {
   assert.equal(this.response.message, message);
 });
+
+When(/^without a (?:"|')([\w-]+)(?:"|') header set$/, function (headerName) {
+  this.request.unset(headerName);
+});
